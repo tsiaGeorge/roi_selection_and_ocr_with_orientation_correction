@@ -29,6 +29,7 @@ input_img = cv2.imread(IMAGE_FILE_LOCATION) # image read
 #####################################################################################################
 # ORIENTATION CORRECTION/ADJUSTMENT
 
+
 def orientation_correction(img, save_image = False):
     # GrayScale Conversion for the Canny Algorithm  
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
@@ -58,12 +59,13 @@ img_rotated = orientation_correction(input_img)
 
 #####################################################################################################
 # REGION OF INTEREST (ROI) SELECTION
+# initializing the list for storing the coordinates
 
-# initializing the list for storing the coordinates 
-coordinates = [] 
-  
-# Defining the event listener (callback function)
-def shape_selection(event, x, y, flags, param): 
+
+coordinates = []
+def shape_selection(event, x, y, flags, param):
+    """Defining the event listener (callback function)"""
+
     # making coordinates global
     global coordinates 
   
